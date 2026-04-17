@@ -105,7 +105,7 @@ contract DexAggregator is Ownable
 ```
 
 
-This section describes all functions in the `DexAggregatorV2` contract that can be called by external users (EOAs or other smart contracts). These functions define the public interface of the protocol.
+This section describes all functions in the `DexAggregator` contract that can be called by external users. These functions define the public interface of the protocol.
 
 ---
 
@@ -119,3 +119,20 @@ function swap(
     uint256 minAmountOut,
     uint256 deadline
 ) external nonReentrant returns (uint256 amountOut);
+```
+
+```solidity
+function getBestQuote(
+    address tokenIn,
+    address tokenOut,
+    uint256 amountIn
+) public returns (Quote memory);
+```
+
+```solidity
+function getBestSequenceQuote(
+    address tokenIn,
+    address tokenOut,
+    uint256 amountIn
+) public returns (Route memory);
+```
