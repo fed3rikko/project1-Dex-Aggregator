@@ -47,6 +47,7 @@ The best available quote is selected dynamically.
 
 ```solidity
 getBestQuote(tokenIn, tokenOut, amountIn)
+```
 
 This function returns a Quote struct containing:
 	•	amountOut: the best output amount
@@ -63,10 +64,10 @@ The graph is defined as:
 Nodes  = tokens
 Edges  = possible swaps between tokens
 Weight = dynamic output amount from quote function
-
+```
 ```solidity
 getBestSequenceQuote(tokenIn, tokenOut, amountIn)
-
+```
 
 DFS algo
 The algorithm performs recursive exploration of the token graph:
