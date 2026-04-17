@@ -103,3 +103,19 @@ Administrative control of the contract is managed using OpenZeppelin’s Ownable
 ``` solidity
 contract DexAggregator is Ownable
 ```
+
+
+This section describes all functions in the `DexAggregatorV2` contract that can be called by external users (EOAs or other smart contracts). These functions define the public interface of the protocol.
+
+---
+
+### 4.1 `swap` — Single-Hop Optimized Swap
+
+```solidity
+function swap(
+    address tokenIn,
+    address tokenOut,
+    uint256 amountIn,
+    uint256 minAmountOut,
+    uint256 deadline
+) external nonReentrant returns (uint256 amountOut);
