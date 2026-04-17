@@ -76,3 +76,30 @@ The algorithm performs recursive exploration of the token graph:
 	•	Builds routes incrementally using currentRoute
 	•	Evaluates each complete or partial path using getBestQuote
 	•	Updates global best result when a better route is found
+
+
+### 4.1 Slippage Protection
+
+To protect users from unfavorable price movements during execution, the contract enforces a strict slippage check before executing swaps:
+
+```
+require(best.amountOut >= minAmountOut, "Slippage");
+```
+
+### 4.2 Reentrancy Protection
+
+The contract uses OpenZeppelin’s ReentrancyGuard to prevent reentrancy attacks during swap execution.
+
+Functions such as swap() and swapSequence() are marked with:
+
+``` solidity
+nonReentrant
+```
+
+### 4.3 Access Control (Ownership)
+
+Administrative control of the contract is managed using OpenZeppelin’s Ownable pattern.
+
+``` solidity
+contract DexAggregator is Ownable
+```
